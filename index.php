@@ -38,36 +38,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>PrimateNet</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
   <style>
-    /* Estilos personalizados */
-    body {
-      background-color: #f0f2f5;
-    }
+      body {
+        background-color: #f0f2f5;
+      }
 
-    .navbar {
-      background-color: #3b5998;
-    }
+      .container {
+        background-color: #fff;
+        margin-top: 50px;
+        padding: 20px;
+        border-radius: 5px;
+      }
 
-    .container {
-      background-color: #fff;
-      margin-top: 50px;
-      padding: 20px;
-      border-radius: 5px;
-    }
-
-    .card {
-      margin-bottom: 2px;
-    }
-
-    .donation-images {
-      display: flex;
-      justify-content: center;
-    }
+      .card {
+        margin-bottom: 2px;
+      }
   </style>
+  
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="index.php">PrimateNet</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">

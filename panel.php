@@ -177,11 +177,13 @@ function getTimeElapsedString($datetime, $full = false) {
 
 <div class="container content mt-4 mb-4">
 
-  <div class="h3">Revisa las últimas publicaciones!</div>
+  <div class="d-flex align-content-start flex-wrap px-3">
+    <div class="h3">Revisa las últimas publicaciones!</div>
 
-  <button type="button" class="btn btn-primary mt-3 mb-4" data-toggle="modal" data-target="#crearPublicacionModal">
-    Crear nueva publicación
-  </button>
+    <button type="button" class="btn btn-primary mx-4 px-4 mb-4" data-toggle="modal" data-target="#crearPublicacionModal">
+      Crear nueva publicación
+    </button>
+  </div>
 
   <div class="row justify-content-center">
     <?php if (!empty($publicaciones)): ?>
@@ -196,7 +198,7 @@ function getTimeElapsedString($datetime, $full = false) {
             <p class="contenido"><?php echo $publicacion["contenido"]; ?></p>
           </div>
           <?php if (!empty($publicacion["imagen"])): ?>
-            <div class="text-center">
+            <div class="text-center img-fluid">
               <img src="imagenes/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;"> <!-- Establecer el tamaño máximo de la imagen -->
             </div>
           <?php endif; ?>
