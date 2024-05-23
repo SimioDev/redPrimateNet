@@ -64,7 +64,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
   <title>Información de Usuario</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
-    /* Estilos personalizados */
+    @font-face {
+        font-family: 'SecularOne-Regular';
+        src: url('SecularOne-Regular.ttf') format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
     body {
       background-color: #f0f2f5;
     }
@@ -111,6 +116,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
       margin: 0;
     }
 
+    .primate{
+        font-family: 'SecularOne-Regular';
+        transition: 0.5s;
+    }
+
     .perfil {
       width: 200px;
       height: 200px;
@@ -126,8 +136,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md">
-  <a class="navbar-brand" href="#"><b>PrimateNet</b></a>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a class="navbar-brand primate" href="#"><b>PrimateNet</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

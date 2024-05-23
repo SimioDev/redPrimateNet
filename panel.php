@@ -19,8 +19,9 @@ if ($result->num_rows > 0) {
   }
 }
 
+// Aquí muestro la fecha de publicación de cada post
 function getTimeElapsedString($datetime, $full = false) {
-    date_default_timezone_set('America/Bogota'); // Establece tu zona horaria
+    date_default_timezone_set('America/Bogota');
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);
@@ -69,16 +70,7 @@ function getTimeElapsedString($datetime, $full = false) {
       background-color: #f0f2f5;
     }
 
-    .navbar {
-      background-color: #3b5998;
-      color: #fff;
-    }
-
     .navbar-brand {
-      color: #fff;
-    }
-
-    .navbar-nav .nav-link {
       color: #fff;
     }
 
@@ -118,19 +110,19 @@ function getTimeElapsedString($datetime, $full = false) {
     }
 
     .publicacion .autor .nombre {
-      color: #888;
       font-weight: bold;
       margin-bottom: 0;
     }
 
-    .publicacion .fecha {
-      color: #888;
-      margin-top: 0;
+    .publicacion .autor .fecha{
+      
+      margin-bottom: 0;
     }
 
     .publicacion .contenido {
       margin-top: 10px;
       word-wrap: break-word;
+      color: #343334;
     }
 
     .no-publicaciones {
@@ -141,18 +133,13 @@ function getTimeElapsedString($datetime, $full = false) {
 
     .primate{
         font-family: 'SecularOne-Regular';
-        transition: 0.5s;
-    }
-    .primate:hover{
-        color: black;
-        transition: 0.5s;
     }
   </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-md">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <a class="navbar-brand primate" href="#"><b>PrimateNet</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -189,18 +176,21 @@ function getTimeElapsedString($datetime, $full = false) {
     <?php if (!empty($publicaciones)): ?>
       <?php foreach ($publicaciones as $publicacion): ?>
         <div class="publicacion col-auto">
+
           <div class="autor">
             <img src="<?php echo $publicacion["foto_perfil"]; ?>" alt="Foto de perfil">
-            <p class="nombre"><?php echo $publicacion["nombre"]; ?></p>
+            <h6 class="nombre"><?php echo $publicacion["nombre"]; ?></h6>
+            <p class="ml-auto fecha">Publicado hace <?php echo getTimeElapsedString($publicacion["fecha_publicacion"]); ?></p>
           </div>
-          <p class="fecha"><strong>Publicado hace</strong> <?php echo getTimeElapsedString($publicacion["fecha_publicacion"]); ?></p>
+          
           <div class="text-center">
             <p class="contenido"><?php echo $publicacion["contenido"]; ?></p>
           </div>
+
           <?php if (!empty($publicacion["imagen"])): ?>
-            <div class="text-center img-fluid">
-              <img src="imagenes/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;"> <!-- Establecer el tamaño máximo de la imagen -->
-            </div>
+          <div class="text-center img-fluid">
+            <img src="imagenes/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;"> <!-- Establecer el tamaño máximo de la imagen -->
+          </div>
           <?php endif; ?>
         </div>
       <?php endforeach; ?>
@@ -210,7 +200,10 @@ function getTimeElapsedString($datetime, $full = false) {
   </div>
 </div>
 
-<!-- Modal de Crear Publicación -->
+
+
+
+<!-- Modal donde puedo crear una nueva Publicación -->
 <div class="modal fade" id="crearPublicacionModal" tabindex="-1" role="dialog" aria-labelledby="crearPublicacionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -236,6 +229,8 @@ function getTimeElapsedString($datetime, $full = false) {
     </div>
   </div>
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
