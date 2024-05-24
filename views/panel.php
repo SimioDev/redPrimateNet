@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-  header("Location: login.php");
+  header("Location: ../src/LoginController.php");
   exit();
 }
 
-include 'conexion.php';
+include '../models/Conexion.php';
 
 // Obtener todas las publicaciones de todos los usuarios ordenadas por fecha de forma descendente
 $sql = "SELECT publicaciones.*, usuarios.nombre, usuarios.foto_perfil FROM publicaciones INNER JOIN usuarios ON publicaciones.usuario_id = usuarios.id ORDER BY publicaciones.fecha_publicacion DESC";
@@ -62,7 +62,7 @@ function getTimeElapsedString($datetime, $full = false) {
   <style>
     @font-face {
         font-family: 'SecularOne-Regular';
-        src: url('SecularOne-Regular.ttf') format("truetype");
+        src: url('../assets/fonts/SecularOne-Regular.ttf') format("truetype");
         font-weight: normal;
         font-style: normal;
     }
@@ -76,6 +76,14 @@ function getTimeElapsedString($datetime, $full = false) {
 
     .navbar-nav .nav-link:hover {
       color: #f0f2f5;
+    }
+
+    .btn-logout{
+      color: #fff;
+    }
+    .btn-logout:hover{
+      text-decoration: none;
+      color: white;
     }
 
     .content {
@@ -150,12 +158,12 @@ function getTimeElapsedString($datetime, $full = false) {
         <a class="nav-link disabled" href="panel.php">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="informacion_usuario.php">Mi Perfil</a>
+        <a class="nav-link" href="../src/InformacionUsuarioController.php">Mi Perfil</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="logout.php">Cerrar Sesión</a>
+        <button type="submit" class="btn btn-danger btn-sm float-right"><a class="btn-logout" href="../src/LogoutController.php">Cerrar Sesión</a></button>
       </li>
     </ul>
   </div>
@@ -178,18 +186,20 @@ function getTimeElapsedString($datetime, $full = false) {
         <div class="publicacion col-auto">
 
           <div class="autor">
+
             <img src="<?php echo $publicacion["foto_perfil"]; ?>" alt="Foto de perfil">
             <h6 class="nombre"><?php echo $publicacion["nombre"]; ?></h6>
-            <p class="ml-auto fecha">Publicado hace <?php echo getTimeElapsedString($publicacion["fecha_publicacion"]); ?></p>
+            <p class="ml-auto fecha"><span class="badge rounded-pill bg-primary p-2 text-white">Hace <?php echo getTimeElapsedString($publicacion["fecha_publicacion"]); ?></span></p>
+
           </div>
           
-          <div class="text-center">
+          <div>
             <p class="contenido"><?php echo $publicacion["contenido"]; ?></p>
           </div>
 
           <?php if (!empty($publicacion["imagen"])): ?>
           <div class="text-center img-fluid">
-            <img src="imagenes/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;"> <!-- Establecer el tamaño máximo de la imagen -->
+            <img src="../assets/images/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;"> <!-- Establecer el tamaño máximo de la imagen -->
           </div>
           <?php endif; ?>
         </div>
@@ -198,6 +208,8 @@ function getTimeElapsedString($datetime, $full = false) {
       <p class="no-publicaciones">Aún no hay publicaciones.</p>
     <?php endif; ?>
   </div>
+
+
 </div>
 
 
@@ -214,7 +226,7 @@ function getTimeElapsedString($datetime, $full = false) {
         </button>
       </div>
       <div class="modal-body">
-        <form action="crear_publicacion.php" method="POST" enctype="multipart/form-data">
+        <form action="../src/CrearPublicacionController.php" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="contenido">Contenido:</label>
             <textarea class="form-control" name="contenido" id="contenido" rows="3" required></textarea>

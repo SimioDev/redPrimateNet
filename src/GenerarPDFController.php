@@ -1,14 +1,14 @@
 <?php
-require_once('tcpdf/tcpdf.php');
+require_once('../lib/tcpdf/tcpdf.php');
 
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-  header("Location: login.php");
+  header("Location: LoginController.php");
   exit();
 }
 
-include 'conexion.php';
+include '../models/Conexion.php';
 
 $usuario = $_SESSION["usuario"];
 
@@ -81,17 +81,26 @@ $pdf->Cell(0, 10, 'Cantidad de Publicaciones: ' . count($publicaciones), 0, 1, '
 // Mostrar publicaciones
 $pdf->Ln(10);
 $pdf->SetFont('helvetica', 'B', 12);
-$pdf->Cell(0, 10, 'Mis publicaciones: ', 0, 1, 'L');
-$pdf->SetFont('helvetica', '', 10);
 
-foreach ($publicaciones as $publicacion) {
-  $fechaPublicacion = $publicacion["fecha_publicacion"];
-  $contenido = $publicacion["contenido"];
-  
-  $pdf->MultiCell(0, 10, 'Fecha: ' . $fechaPublicacion, 0, 'L');
-  $pdf->MultiCell(0, 10, 'Contenido: ' . $contenido, 0, 'L');
-  $pdf->Ln(5);
+if (count($publicaciones) > 0) {
+  $pdf->Cell(0, 10, 'Mis publicaciones: ', 0, 1, 'L');
+  $pdf->SetFont('helvetica', '', 10);
+
+  foreach ($publicaciones as $publicacion) {
+    $fechaPublicacion = $publicacion["fecha_publicacion"];
+    $contenido = $publicacion["contenido"];
+    
+    $pdf->MultiCell(0, 10, 'Fecha: ' . $fechaPublicacion, 0, 'L');
+    $pdf->MultiCell(0, 10, 'Contenido: ' . $contenido, 0, 'L');
+    $pdf->Ln(5);
+  }
+}else{
+  $pdf->Cell(0, 10, 'Sin publicaciones actualmente. ', 0, 1, 'L');
+  $pdf->SetFont('helvetica', '', 10);
 }
+
+
+
 
 // Generar nombre del archivo
 $nombreArchivo = 'perfil_' . strtolower($nombre) . '.pdf';

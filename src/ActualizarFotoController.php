@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-  header("Location: login.php");
+  header("Location: LoginController.php");
   exit();
 }
 
-include 'conexion.php';
+include '../models/Conexion.php';
 
 $usuario = $_SESSION["usuario"];
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fotoNombre = $_FILES["nuevaFoto"]["name"];
     
     // Mover la foto al directorio de imágenes
-    $directorioImagenes = "imagenes/";
+    $directorioImagenes = "../assets/images/";
     $rutaFoto = $directorioImagenes . $fotoNombre;
     move_uploaded_file($foto, $rutaFoto);
     
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = "UPDATE usuarios SET foto_perfil = '$rutaFoto' WHERE id = $usuario";
     if ($conn->query($sql) === TRUE) {
       // Redireccionar a la página de información de usuario
-      header("Location: informacion_usuario.php");
+      header("Location: InformacionUsuarioController.php");
       exit();
     } else {
       echo "Error al actualizar la foto de perfil: " . $conn->error;
@@ -34,6 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "No se ha seleccionado una nueva foto.";
   }
 } else {
-  header("Location: informacion_usuario.php");
+  header("Location: InformacionUsuarioController.php");
   exit();
 }

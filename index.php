@@ -1,5 +1,5 @@
 <?php
-  include 'conexion.php';
+  include 'models/Conexion.php';
 
   $sqlUsuarios = "SELECT COUNT(*) AS cantidad FROM usuarios";
   $resultUsuarios = $conn->query($sqlUsuarios);
@@ -64,10 +64,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="registro.php">Registrarse</a>
+        <a class="nav-link" href="src/RegistroController.php">Registrarse</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.php">Iniciar sesión</a>
+        <a class="nav-link" href="src/LoginController.php">Iniciar sesión</a>
       </li>
     </ul>
   </div>

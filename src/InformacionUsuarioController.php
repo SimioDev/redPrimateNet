@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-  header("Location: login.php");
+  header("Location: LoginController.php");
   exit();
 }
 
-include 'conexion.php';
+include '../models/conexion.php';
 
 $usuario = $_SESSION["usuario"];
 
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
   
   if ($conn->query($sql) === TRUE) {
     // La publicación se eliminó correctamente
-    header("Location: informacion_usuario.php");
+    header("Location: InformacionUsuarioController.php");
     exit();
   } else {
     echo "Error al eliminar la publicación: " . $conn->error;
@@ -64,9 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
   <title>Información de Usuario</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
+
     @font-face {
         font-family: 'SecularOne-Regular';
-        src: url('SecularOne-Regular.ttf') format("truetype");
+        src: url('../assets/fonts/SecularOne-Regular.ttf') format("truetype");
         font-weight: normal;
         font-style: normal;
     }
@@ -144,15 +145,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="panel.php">Inicio</a>
+        <a class="nav-link" href="../views/panel.php">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="informacion_usuario.php">Mi Perfil</a>
+        <a class="nav-link disabled" href="InformacionUsuarioController.php">Mi Perfil</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="logout.php">Cerrar Sesión</a>
+        <a class="nav-link" href="LogoutController.php">Cerrar Sesión</a>
       </li>
     </ul>
   </div>
@@ -167,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
     <p><strong>Cantidad de Publicaciones:</strong> <?php echo $cantidadPublicaciones; ?></p>
     <div class="text-center">
         <a href="#" class="btn btn-primary mt-3" data-toggle="modal" data-target="#editarFotoModal">Editar Foto de Perfil</a>
-        <a href="generar_pdf.php" target="_blank" class="btn btn-secondary mt-3">Descargar la información en PDF</a>
+        <a href="GenerarPDFController.php" target="_blank" class="btn btn-secondary mt-3">Descargar la información en PDF</a>
     </div>
 </div>
 
@@ -182,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
         </button>
       </div>
       <div class="modal-body">
-        <form action="actualizar_foto.php" method="post" enctype="multipart/form-data">
+        <form action="ActualizarFotoController.php" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="nuevaFoto">Selecciona una nueva foto:</label>
             <input type="file" class="form-control-file" id="nuevaFoto" name="nuevaFoto" accept="image/*" required>
@@ -197,7 +198,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
 <div class="container content mt-3">
     <div class="h3">Mis publicaciones:</div>
 
-    <?php foreach ($publicaciones as $publicacion): ?>
+    <?php 
+
+    if ($cantidadPublicaciones > 0) {
+      foreach ($publicaciones as $publicacion):    
+    ?>
     <div class="publicacion mt-4">
         <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
           <input type="hidden" name="eliminarPublicacion" value="<?php echo $publicacion["id"]; ?>">
@@ -206,7 +211,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
         <p class="fecha"><?php echo $publicacion["fecha_publicacion"]; ?></p>
         <p class="contenido"><?php echo $publicacion["contenido"]; ?></p>
     </div>
-    <?php endforeach; ?>
+    <?php endforeach;     }else{?>
+      <p>Actualmente no tienes ningúna publicación.</p>
+    <?php }?>
 </div>
 
 

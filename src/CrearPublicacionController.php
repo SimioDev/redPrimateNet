@@ -2,12 +2,12 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-  header("Location: login.php");
+  header("Location: LoginController.php");
   exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  include 'conexion.php';
+  include '../models/Conexion.php';
 
   $contenido = $_POST["contenido"];
   $usuario_id = $_SESSION["usuario"];
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagen = $_FILES["imagen"];
     $nombreArchivo = $imagen["name"];
     $rutaTemporal = $imagen["tmp_name"];
-    $rutaDestino = "imagenes/" . $nombreArchivo;
+    $rutaDestino = "../assets/images/" . $nombreArchivo;
 
     // Mover la imagen de la ubicación temporal a la carpeta de imágenes
     if (move_uploaded_file($rutaTemporal, $rutaDestino)) {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 
   if ($conn->query($sql) === TRUE) {
-    header("Location: panel.php");
+    header("Location: ../views/panel.php");
     exit();
   } else {
     echo "Error al crear la publicación: " . $conn->error;
