@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Onest-VariableFont_wght';
+    src: url('../fonts/Onest-VariableFont_wght.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Onest-VariableFont_wght';
+    background-color: #f0f2f5;
+}
+.container {
+    background-color: #fff;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .card {
+    margin-bottom: 2px;
+  }

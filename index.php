@@ -38,23 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>PrimateNet</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-  <style>
-      body {
-        background-color: #f0f2f5;
-      }
-
-      .container {
-        background-color: #fff;
-        margin-top: 50px;
-        padding: 20px;
-        border-radius: 5px;
-      }
-
-      .card {
-        margin-bottom: 2px;
-      }
-  </style>
+  <link rel="stylesheet" href="./assets/css/style.css">
   
 </head>
 <body>

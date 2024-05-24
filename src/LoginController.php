@@ -8,17 +8,15 @@
   <title>Iniciar Sesión</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
-    /* Estilos personalizados */
     body {
       background-color: #f0f2f5;
     }
-
     .container {
       background-color: #fff;
       margin-top: 50px;
       padding: 20px;
       border-radius: 5px;
-      max-width: 400px; /* Ajusta el ancho máximo del contenedor */
+      max-width: 400px;
     }
 
     .form-control {

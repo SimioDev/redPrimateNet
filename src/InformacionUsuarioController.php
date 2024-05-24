@@ -46,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
   $sql = "DELETE FROM publicaciones WHERE id = $publicacionId AND usuario_id = $usuario";
   
   if ($conn->query($sql) === TRUE) {
-    // La publicación se eliminó correctamente
     header("Location: InformacionUsuarioController.php");
+    echo '<div class="alert alert-success mt-4" role="alert">La publicacion se ha borrado correctamente.</div>';
     exit();
   } else {
     echo "Error al eliminar la publicación: " . $conn->error;
@@ -97,8 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
       padding: 20px;
       background-color: #fff;
       border-radius: 5px;
-      max-width: 800px; /* Ajusta el ancho máximo del contenido */
-      margin: 0 auto; /* Centra el contenido en la página */
+      max-width: 800px; 
+      margin: 0 auto; 
     }
 
     .publicacion {
@@ -206,10 +206,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
     <div class="publicacion mt-4">
         <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
           <input type="hidden" name="eliminarPublicacion" value="<?php echo $publicacion["id"]; ?>">
-          <button type="submit" class="btn btn-danger btn-sm float-right">Eliminar</button>
+          <button type="submit" style="border: none;" class="float-right"><span class="badge rounded-pill bg-danger p-2 text-white">Eliminar Publicación</span></button>
         </form>
-        <p class="fecha"><?php echo $publicacion["fecha_publicacion"]; ?></p>
-        <p class="contenido"><?php echo $publicacion["contenido"]; ?></p>
+        <p class="fecha"><span class="badge rounded-pill bg-primary p-2 text-white">Fecha de subida: <?php echo $publicacion["fecha_publicacion"]; ?></span></p>
+        <p class="contenido mt-4"><?php echo $publicacion["contenido"]; ?></p>
     </div>
     <?php endforeach;     }else{?>
       <p>Actualmente no tienes ningúna publicación.</p>

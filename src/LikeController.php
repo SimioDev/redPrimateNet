@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-  header("Location: login.php");
+  header("Location: LoginController.php");
   exit();
 }
 
-include 'conexion.php';
+include '../models/Conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $publicacion_id = $_POST["publicacion_id"];
@@ -28,6 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Redireccionar de vuelta a la página de panel.php después de dar "me gusta" o eliminar "me gusta"
-header("Location: panel.php");
+header("Location: ../views/panel.php");
 exit();
 ?>
