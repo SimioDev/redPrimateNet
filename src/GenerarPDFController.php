@@ -12,7 +12,6 @@ include '../models/Conexion.php';
 
 $usuario = $_SESSION["usuario"];
 
-// Obtener todas las publicaciones del usuario actual ordenadas por fecha de forma descendente
 $sql = "SELECT * FROM publicaciones WHERE usuario_id = $usuario ORDER BY fecha_publicacion DESC";
 $result = $conn->query($sql);
 
@@ -37,18 +36,15 @@ if ($result->num_rows == 1) {
   exit();
 }
 
-// Crear nueva instancia de TCPDF
 $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8');
 
-// Establecer metadatos del PDF
 $pdf->SetCreator('Mi Red Social');
 $pdf->SetAuthor('Mi Red Social');
 $pdf->SetTitle('Información de Usuario');
 
-// Agregar página
 $pdf->AddPage();
 
-// Establecer estilo de fuente
+// Estilo de fuente
 $pdf->SetFont('helvetica', 'B', 14);
 
 // Título del PDF
@@ -72,13 +68,10 @@ $pdf->Cell(0, 10, 'Nombre: ' . $nombre, 0, 1, 'C');
 // Email
 $pdf->Cell(0, 10, 'Email: ' . $email, 0, 1, 'C');
 
-// Fecha de Registro
 $pdf->Cell(0, 10, 'Fecha de Registro: ' . $fechaRegistro, 0, 1, 'C');
 
-// Cantidad de Publicaciones
 $pdf->Cell(0, 10, 'Cantidad de Publicaciones: ' . count($publicaciones), 0, 1, 'C');
 
-// Mostrar publicaciones
 $pdf->Ln(10);
 $pdf->SetFont('helvetica', 'B', 12);
 
@@ -100,10 +93,6 @@ if (count($publicaciones) > 0) {
 }
 
 
-
-
-// Generar nombre del archivo
 $nombreArchivo = 'perfil_' . strtolower($nombre) . '.pdf';
 
-// Salida del PDF con el nombre de archivo personalizado
 $pdf->Output($nombreArchivo, 'D');

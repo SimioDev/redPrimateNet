@@ -8,7 +8,6 @@ if (!isset($_SESSION["usuario"])) {
 
 include '../models/Conexion.php';
 
-// Obtener todas las publicaciones de todos los usuarios ordenadas por fecha de forma descendente
 $sql = "SELECT publicaciones.*, usuarios.nombre, usuarios.foto_perfil FROM publicaciones INNER JOIN usuarios ON publicaciones.usuario_id = usuarios.id ORDER BY publicaciones.fecha_publicacion DESC";
 $result = $conn->query($sql);
 
@@ -19,7 +18,6 @@ if ($result->num_rows > 0) {
   }
 }
 
-// Aquí muestro la fecha de publicación de cada post
 function getTimeElapsedString($datetime, $full = false) {
     date_default_timezone_set('America/Bogota');
     $now = new DateTime;
@@ -199,7 +197,7 @@ function getTimeElapsedString($datetime, $full = false) {
 
           <?php if (!empty($publicacion["imagen"])): ?>
           <div class="text-center img-fluid">
-            <img src="../assets/images/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;"> <!-- Establecer el tamaño máximo de la imagen -->
+            <img src="../assets/images/<?php echo $publicacion["imagen"]; ?>" alt="Imagen de la publicación" style="max-width: 476px; max-height: 476px;">
           </div>
           <?php endif; ?>
         </div>
@@ -214,8 +212,6 @@ function getTimeElapsedString($datetime, $full = false) {
 
 
 
-
-<!-- Modal donde puedo crear una nueva Publicación -->
 <div class="modal fade" id="crearPublicacionModal" tabindex="-1" role="dialog" aria-labelledby="crearPublicacionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
