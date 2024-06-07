@@ -24,7 +24,7 @@ Sigue estos pasos para configurar y ejecutar PrimateNet en tu entorno local:
 
 1. **Clona el repositorio en la carpeta `htdocs` de XAMPP:**
     ```bash
-    git clone https://github.com/tu-usuario/PrimateNet.git
+    git clone https://github.com/SimioDev/redPrimateNet
     ```
 
 2. **Configura la base de datos en PhpMyAdmin:**
@@ -47,6 +47,22 @@ Una vez instalado y configurado, puedes usar PrimateNet para:
 - **Gestionar tu Perfil**: Edita tu información personal y descarga tu información en PDF.
 - **Publicar**: Crea y comparte publicaciones con otros usuarios.
 
+## Mockups 🖼️
+
+Aquí hay algunos mockups del proyecto:
+
+<div align="center">
+  <picture>
+    <img src="http://imgfz.com/i/3fhtSEd.png" alt="Pagina de Inicio" width="400"/>
+  </picture>
+  <picture>
+    <img src="http://imgfz.com/i/RVezB4Z.png" alt="Perfil de Usuario" width="400"/>
+  </picture>
+  <picture>
+    <img src="http://imgfz.com/i/C5Qwm2z.png" alt="Apartado de Registro" width="400"/>
+  </picture>
+</div>
+
 ## Contribución 🤝
 
 ¡Las contribuciones son bienvenidas! Si deseas contribuir a PrimateNet, sigue estos pasos:
@@ -68,3 +84,4 @@ PrimateNet fue desarrollado por [SimioDev](https://github.com/SimioDev).
 ---
 
 ¡Gracias por visitar PrimateNet! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
+
