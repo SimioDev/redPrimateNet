@@ -44,19 +44,14 @@ $pdf->SetTitle('Información de Usuario');
 
 $pdf->AddPage();
 
-// Estilo de fuente
 $pdf->SetFont('helvetica', 'B', 14);
 
-// Título del PDF
 $pdf->Cell(0, 10, 'Información de Usuario', 0, 1, 'C');
 
-// Espacio
 $pdf->Ln(10);
 
-// Establecer estilo de fuente para los datos
 $pdf->SetFont('helvetica', '', 12);
 
-// Mostrar imagen de perfil
 if ($fotoPerfil != "") {
   $imagePath = "imagenes/" . $fotoPerfil; // Ruta de la imagen de perfil
   $pdf->Image($imagePath, 15, 40, 40, 40, '', '', '', false, 300, '', false, false, 0);

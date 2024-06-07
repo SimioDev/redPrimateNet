@@ -10,7 +10,6 @@
     $cantidadUsuarios = $rowUsuarios["cantidad"];
   }
 
-  // Consulta para obtener el último usuario registrado
   $sqlUltimoUsuario = "SELECT nombre FROM usuarios ORDER BY id DESC LIMIT 1";
   $resultUltimoUsuario = $conn->query($sqlUltimoUsuario);
   $ultimoUsuario = "";
@@ -20,7 +19,6 @@
     $ultimoUsuario = $rowUltimoUsuario["nombre"];
   }
 
-  // Consulta para obtener la cantidad de publicaciones
   $sqlPublicaciones = "SELECT COUNT(*) AS cantidad FROM publicaciones";
   $resultPublicaciones = $conn->query($sqlPublicaciones);
   $cantidadPublicaciones = 0;

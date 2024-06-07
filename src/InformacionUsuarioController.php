@@ -10,7 +10,6 @@ include '../models/conexion.php';
 
 $usuario = $_SESSION["usuario"];
 
-// Obtener todas las publicaciones del usuario actual ordenadas por fecha de forma descendente
 $sql = "SELECT * FROM publicaciones WHERE usuario_id = $usuario ORDER BY fecha_publicacion DESC";
 $result = $conn->query($sql);
 
@@ -21,7 +20,6 @@ if ($result->num_rows > 0) {
   }
 }
 
-// Obtener la cantidad de publicaciones
 $cantidadPublicaciones = count($publicaciones);
 
 $sql = "SELECT * FROM usuarios WHERE id = {$_SESSION["usuario"]}";
@@ -38,11 +36,9 @@ if ($result->num_rows == 1) {
   exit();
 }
 
-// Procesar el borrado de una publicación si se ha enviado una solicitud
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"])) {
   $publicacionId = $_POST["eliminarPublicacion"];
   
-  // Realizar la consulta SQL para eliminar la publicación
   $sql = "DELETE FROM publicaciones WHERE id = $publicacionId AND usuario_id = $usuario";
   
   if ($conn->query($sql) === TRUE) {
@@ -82,6 +78,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
 
     .navbar-brand {
       color: #fff;
+    }
+
+    .btn-logout{
+      color: #fff;
+    }
+    .btn-logout:hover{
+      text-decoration: none;
+      color: white;
     }
 
     .navbar-nav .nav-link {
@@ -138,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <a class="navbar-brand primate" href="#"><b>PrimateNet</b></a>
+  <a class="navbar-brand primate" href="../views/panel.php"><b>PrimateNet</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -153,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="LogoutController.php">Cerrar Sesión</a>
+        <button type="submit" class="btn btn-danger btn-sm float-right"><a class="btn-logout" href="../src/LogoutController.php">Cerrar Sesión</a></button>
       </li>
     </ul>
   </div>
@@ -172,7 +176,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
     </div>
 </div>
 
-<!-- Ventana emergente para editar la foto de perfil -->
 <div class="modal fade" id="editarFotoModal" tabindex="-1" role="dialog" aria-labelledby="editarFotoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

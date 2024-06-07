@@ -5,10 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Iniciar Sesión</title>
+  <title>Iniciar Sesión PrimateNet</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
     body {
+      font-family: 'Onest-VariableFont_wght';
       background-color: #f0f2f5;
     }
     .container {

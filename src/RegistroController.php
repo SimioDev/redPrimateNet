@@ -5,11 +5,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Registro</title>
+  <title>Registro PrimateNet</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
-    /* Estilos personalizados */
+
+    @font-face {
+        font-family: 'Onest-VariableFont_wght';
+        src: url('../fonts/Onest-VariableFont_wght.ttf') format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
     body {
+      font-family: 'Onest-VariableFont_wght';
       background-color: #f0f2f5;
     }
 
@@ -18,7 +26,7 @@
       margin-top: 50px;
       padding: 20px;
       border-radius: 5px;
-      max-width: 400px; /* Ajusta el ancho máximo del contenedor */
+      max-width: 400px;
     }
 
     .form-control {
@@ -46,7 +54,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="login.php">Iniciar Sesión</a>
+        <a class="nav-link" href="LoginController.php">Iniciar Sesión</a>
       </li>
     </ul>
   </div>
