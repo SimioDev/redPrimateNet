@@ -29,13 +29,13 @@ Sigue estos pasos para configurar y ejecutar PrimateNet en tu entorno local:
 
 2. **Configura la base de datos en PhpMyAdmin:**
     - Abre PhpMyAdmin desde el panel de control de XAMPP.
-    - Importa el archivo SQL que contiene la base de datos (`database.sql`).
+    - Importa el archivo SQL que contiene la base de datos (`mired.sql`).
 
 3. **Inicia el servidor Apache y MySQL en XAMPP.**
 
 4. **Accede a PrimateNet desde tu navegador:**
     ```
-    http://localhost/PrimateNet
+    http://localhost/red
     ```
 
 ## Uso 📌
