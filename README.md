@@ -1,6 +1,8 @@
 # PrimateNet - Red Social 🐒
 
-PrimateNet es una red social inspirada en el funcionamiento de Twitter, donde los usuarios pueden interactuar entre sí a través de publicaciones, gestionar sus perfiles y más.
+PrimateNet es una red de microblogging inspirada en el funcionamiento de Twitter, donde los usuarios pueden interactuar entre sí a través de publicaciones, gestionar sus perfiles y más.
+
+Link: https://youtu.be/hCQJvGkRSig
 
 ## Descripción 📋
 
