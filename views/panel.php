@@ -59,12 +59,21 @@ function getTimeElapsedString($datetime, $full = false) {
 
   <style>
     @font-face {
+    font-family: 'Onest-VariableFont_wght';
+    src: url('../assets/fonts/Onest-VariableFont_wght.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+    
+    @font-face {
         font-family: 'SecularOne-Regular';
         src: url('../assets/fonts/SecularOne-Regular.ttf') format("truetype");
         font-weight: normal;
         font-style: normal;
     }
     body {
+      font-family: 'Onest-VariableFont_wght';
       background-color: #f0f2f5;
     }
 

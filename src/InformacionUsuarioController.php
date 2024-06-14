@@ -60,7 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
   <title>Información de Usuario</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
-
+    @font-face {
+    font-family: 'Onest-VariableFont_wght';
+    src: url('../assets/fonts/Onest-VariableFont_wght.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    }
     @font-face {
         font-family: 'SecularOne-Regular';
         src: url('../assets/fonts/SecularOne-Regular.ttf') format("truetype");
@@ -68,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminarPublicacion"]
         font-style: normal;
     }
     body {
+      font-family: 'Onest-VariableFont_wght';
       background-color: #f0f2f5;
     }
 
