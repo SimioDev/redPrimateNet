@@ -63,25 +63,11 @@ Aquí hay algunos mockups del proyecto:
   </picture>
 </div>
 
-## Contribución 🤝
-
-¡Las contribuciones son bienvenidas! Si deseas contribuir a PrimateNet, sigue estos pasos:
-
-1. Haz un fork del proyecto.
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
-3. Realiza los cambios necesarios y realiza commits (`git commit -m 'Añadir nueva característica'`).
-4. Envía tus cambios a tu fork (`git push origin feature/nueva-caracteristica`).
-5. Abre un Pull Request para revisar tus cambios.
-
-## Licencia 📄
-
-Este proyecto está licenciado bajo la [MIT License](LICENSE).
-
 ## Autor 👤
 
 PrimateNet fue desarrollado por [SimioDev](https://github.com/SimioDev).
 
 ---
 
-¡Gracias por visitar PrimateNet! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
+¡Gracias por visitar PrimateNet! Si tienes alguna pregunta o sugerencia, no dudes en contactar.
 
