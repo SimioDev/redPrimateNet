@@ -69,6 +69,12 @@ Aquí hay algunos mockups del proyecto:
 
 PrimateNet fue desarrollado por [SimioDev](https://github.com/SimioDev).
 
+### Créditos 🎖️
+
+Este proyecto utiliza [TCPDF](http://www.tcpdf.org/) para la generación de archivos PDF. TCPDF es un proyecto de Nicola Asuni y está licenciado bajo la GNU General Public License (GNU GPL) versión 2.
+
+Puedes encontrar más información sobre TCPDF y su licencia en [http://www.tcpdf.org/](http://www.tcpdf.org/).
+
 ---
 
 ¡Gracias por visitar PrimateNet! Si tienes alguna pregunta o sugerencia, no dudes en contactar.
